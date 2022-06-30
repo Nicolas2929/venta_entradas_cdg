@@ -1,5 +1,15 @@
+import org.json.JSONObject;
+
+import ServerHttp.ServerHttp;
+import Servisofts.SConfig;
+import Servisofts.SPGConect;
+import Servisofts.Servisofts;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+
+        Servisofts.Manejador = Manejador::onMessage;
+        ServerHttp.Start(80);
+        SPGConect.setConexion(SConfig.getJSON("data_base"));
     }
 }

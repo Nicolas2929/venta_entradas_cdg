@@ -1,0 +1,9 @@
+{
+    "data_base": {
+        "ip": "servisofts.com",
+        "puerto": 5432,
+        "user": "nnieme",
+        "pass": "nnieme",
+        "bd_name": "venta_entrada_cdg"
+    }
+}
