@@ -2,8 +2,8 @@
     "data_base": {
         "ip": "servisofts.com",
         "puerto": 5432,
-        "user": "nnieme",
-        "pass": "nnieme",
+        "user": "postgres",
+        "pass": "postgres",
         "bd_name": "venta_entrada_cdg"
     }
 }
