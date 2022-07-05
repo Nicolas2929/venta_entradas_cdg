@@ -9,7 +9,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         Servisofts.Manejador = Manejador::onMessage;
-        ServerHttp.Start(8080);
+        ServerHttp.Start(80);
         SPGConect.setConexion(SConfig.getJSON("data_base"));
     }
 }

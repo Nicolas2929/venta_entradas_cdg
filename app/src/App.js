@@ -1,17 +1,16 @@
 function App() {
 
   const callServer = () => {
-    console.log("serengfgfg")
 
     var data = {
-      component:"usuario",type:"getAll"
+      component: "usuario", type: "getAll"
     }
     const options = {
       method: 'POST',
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     };
-    
-    fetch('http://192.168.0.212:8080/api', options)
+
+    fetch('http://192.168.3.2/api', options)
       .then(response => response.json())
       .then(response => console.log(response))
       .catch(err => console.error(err));
