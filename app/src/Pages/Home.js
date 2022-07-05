@@ -9,7 +9,10 @@ export default function Home() {
       <h1>Inicio</h1>
       <Link to={"usuario"}><p>usuario</p></Link>
       <Link to={"evento"}><p>evento</p></Link>
-
+      <Link to={"sector"}><p>sector</p></Link>
+      <Link to={"ticket"}><p>ticket</p></Link>
+      <Link to={"venta"}><p>venta</p></Link>
+      <Link to={"orden_pago"}><p>orden_pago</p></Link>
     </div>
   );
 }

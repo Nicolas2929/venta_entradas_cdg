@@ -7,7 +7,7 @@ export default function Lista() {
     const [state, setState] = React.useState({});
 
     React.useEffect(() => {
-        Model.usuario.getAll((resp) => {
+        Model.evento.getAll((resp) => {
             state.data = resp.data;
             setState({ ...state });
         })
@@ -15,7 +15,7 @@ export default function Lista() {
     const getLista = () => {
         if (!state.data) return null;
         return <TableData header={[
-            "nombre", "apellido", "correo", "telefono", "password", "estado"
+            "codigo", "key_usuario_cliente", "nit"
         ]} data={state.data}
         />
 
