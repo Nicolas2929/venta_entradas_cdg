@@ -10,6 +10,7 @@ import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Test from './Pages/Test';
 
+import usuario from './Pages/usuario';
 export default function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='login' element={<Login />} />
         <Route path='test' element={<Test />} />
+        {usuario}
       </Routes>
     </Router>
   )

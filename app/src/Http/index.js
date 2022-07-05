@@ -1,4 +1,4 @@
-const POST = (data) => {
+const POST = async (data, callback) => {
     const options = {
         method: 'POST',
         body: JSON.stringify(data),
@@ -7,7 +7,7 @@ const POST = (data) => {
     fetch('http://localhost:8080/api', options)
         .then(response => response.json())
         .then(response => {
-            console.log(response)
+            callback(response);
         })
         .catch(err => console.error(err));
 }
