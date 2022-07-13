@@ -1,0 +1,7 @@
+1.4 Planteamiento del problema técnico
+
+El Club Deportivo Guabirá vende sus entradas de forma presencial y no cuenta con una tienda virtual para promocionar sus productos, ofertas y contactar con sus clientes. Esta situación no le permite mostrarse al publico con el mismo alcance que tendría entando presente en el internet.
+
+1.5 Formulación del problema técnico
+
+¿Cuál es la solución informática que permitirá promocionar al club deportivo guabirá y mantener los contactos con sus clientes?
