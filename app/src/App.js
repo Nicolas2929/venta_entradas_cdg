@@ -16,7 +16,8 @@ import sector from './Pages/sector';
 import ticket from './Pages/ticket';
 import venta from './Pages/venta';
 import orden_pago from './Pages/orden_pago';
-
+import Perfil from './Pages/Perfil';
+import "./App.css"
 export default function App() {
   return (
     <Router>
@@ -24,15 +25,13 @@ export default function App() {
         <Route path='/' element={<Home />} />
         <Route path='login' element={<Login />} />
         <Route path='test' element={<Test />} />
+        <Route path='perfil' element={<Perfil />} />
         {usuario}
         {evento}
         {sector}
         {ticket}
         {venta}
         {orden_pago}
-        
-
-        
       </Routes>
     </Router>
   )

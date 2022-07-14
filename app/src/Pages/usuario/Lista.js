@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom'
+import Page from '../../Components/Page';
 import TableData from '../../Components/TableData';
 import Model from '../../Model';
 export default function Lista() {
@@ -21,8 +22,8 @@ export default function Lista() {
 
     }
     return (
-        <div>
+        <Page>
             {getLista()}
-        </div>
+        </Page>
     );
 }
