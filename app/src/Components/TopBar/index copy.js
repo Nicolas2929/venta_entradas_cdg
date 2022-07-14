@@ -1,22 +1,14 @@
 import * as React from 'react';
-import { Button } from '@mui/material';
+
 import "./index.css"
 export default function TopBar(props) {
     const btnMenu = (data) => {
         return <div className='btnMenu'>
-            <a href={data.href}>
-                <Button variant="contained" color="inherit">
-                    {data.label}
-                    </Button>
-            </a>
+            <a href={data.href}>{data.label}</a>
         </div>
     }
     return <div className='TopBar' >
-
-<a href={"/"}>
-        <Button color="inherit">Guabira
-        </Button>
-        </a>
+        <label>Guabira</label>
         <br />
         {btnMenu({ label: "usuario", href: "/usuario" })}
         {btnMenu({ label: "evento", href: "/evento" })}
@@ -24,6 +16,7 @@ export default function TopBar(props) {
         {btnMenu({ label: "ticket", href: "/ticket" })}
         {btnMenu({ label: "venta", href: "/venta" })}
         {btnMenu({ label: "orden_pago", href: "/orden_pago" })}
+        
 
     </div>
 }
