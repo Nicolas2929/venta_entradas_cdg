@@ -1,6 +1,8 @@
-import { Button } from '@mui/material';
+import { Add } from '@mui/icons-material';
+import { Button, Typography } from '@mui/material';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom'
+import AddBtn from '../../Components/AddBtn';
 import Page from '../../Components/Page';
 import TableData from '../../Components/TableData';
 import Model from '../../Model';
@@ -19,20 +21,27 @@ export default function Lista() {
         return <TableData header={[
             "nombre", "apellido", "correo", "telefono", "password", "estado"
         ]} data={state.data}
+            onSelect={(itm) => {
+                navigate("/usuario/editar/" + itm.key)
+
+            }}
         />
 
     }
     return (
         <Page>
 
+            <Typography variant="h5">
+                Usuarios
+                <AddBtn onClick={() => {
+                    navigate("/usuario/registro")
+                }} />
+            </Typography>
+
+
             {getLista()}
 
-            <Button variant="outlined" color="error" onClick={()=>{
-                  navigate("/usuario/registro")
 
-            }}>
-                registar
-            </Button>
         </Page>
 
     );

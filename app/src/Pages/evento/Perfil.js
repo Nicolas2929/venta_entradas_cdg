@@ -32,7 +32,7 @@ export default function Perfil() {
             <hr />
             <h4>Sectores</h4>
             <Button variant="outlined" color="error" onClick={() => {
-                navigate("/sector/registro/"+key)
+                navigate("/sector/registro/" + key)
 
             }}>
                 Nuevo Sector
@@ -40,6 +40,10 @@ export default function Perfil() {
             <TableData header={[
                 "nombre", "precio", "capacidad"
             ]} data={state.eventos}
+                onSelect={(itm) => {
+                    navigate("/sector/editar/" + itm.key)
+
+                }}
             />
 
 

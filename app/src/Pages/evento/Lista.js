@@ -1,6 +1,7 @@
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom'
+import AddBtn from '../../Components/AddBtn';
 import Page from '../../Components/Page';
 import TableData from '../../Components/TableData';
 import Model from '../../Model';
@@ -17,10 +18,10 @@ export default function Lista() {
     const getLista = () => {
         if (!state.data) return null;
         return <TableData header={[
-            "hora", "fecha", "descripcion"
+            "descripcion", "fecha", "hora",
         ]} data={state.data}
             onSelect={(itm) => {
-                navigate("/evento/perfil/"+itm.key)
+                navigate("/evento/perfil/" + itm.key)
 
             }}
         />
@@ -28,13 +29,14 @@ export default function Lista() {
     }
     return (
         <Page>
-            {getLista()}
-            <Button variant="outlined" color="error" onClick={() => {
-                navigate("/evento/registro")
 
-            }}>
-                registar
-            </Button>
+            <Typography variant="h5">
+                Eventos
+                <AddBtn onClick={() => {
+                    navigate("/evento/registro")
+                }} />
+            </Typography>
+            {getLista()}
         </Page>
 
 
