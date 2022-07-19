@@ -25,12 +25,13 @@ export default function Perfil() {
     const getPerfil = () => {
         if (!state.data) return null;
         if (!state.eventos) return null;
+        
         return <div>
-            <p>{state.data.descripcion}</p>
-            <p>{state.data.hora}</p>
-            <p>{state.data.fecha}</p>
+            <p><button>{state.data.descripcion}</button></p>
+            <p><button>{state.data.hora}</button></p>
+            <p><button>{state.data.fecha}</button></p>
             <hr />
-            <h4>Sectores</h4>
+            <h4 color='red'><p>Sectores</p></h4>
             <Button variant="outlined" color="error" onClick={() => {
                 navigate("/sector/registro/"+key)
 
