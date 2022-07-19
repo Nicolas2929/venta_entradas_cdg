@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom'
 import Page from '../../Components/Page';
@@ -23,7 +24,16 @@ export default function Lista() {
     }
     return (
         <Page>
+
             {getLista()}
+
+            <Button variant="outlined" color="error" onClick={()=>{
+                  navigate("/usuario/registro")
+
+            }}>
+                registar
+            </Button>
         </Page>
+
     );
 }

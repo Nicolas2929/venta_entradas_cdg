@@ -7,11 +7,13 @@ export default function Registro() {
     const navigate = useNavigate();
     return (
         <Page>
+            
             <Formulario inputs={["nombre", "apellido", "correo", "telefono", "password"]} onSubmit={(data) => {
                 Model.usuario.registro(data, (resp) => {
                     window.history.back()
                 })
             }} />
         </Page>
+        
     );
 }
