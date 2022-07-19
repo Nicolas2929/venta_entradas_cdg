@@ -9,7 +9,7 @@ export default function Lista() {
     const [state, setState] = React.useState({});
 
     React.useEffect(() => {
-        Model.evento.getAll((resp) => {
+        Model.venta.getAll((resp) => {
             state.data = resp.data;
             setState({ ...state });
         })

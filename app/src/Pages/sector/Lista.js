@@ -9,15 +9,16 @@ export default function Lista() {
     const [state, setState] = React.useState({});
 
     React.useEffect(() => {
-        Model.evento.getAll((resp) => {
+        Model.sector.getAll((resp) => {
             state.data = resp.data;
             setState({ ...state });
         })
     }, [])
     const getLista = () => {
         if (!state.data) return null;
+        console.log(state)
         return <TableData header={[
-            "nombre", "precio", "capacidad"
+            "nombre", "precio", "capacidad", "key_evento"
         ]} data={state.data}
         />
 

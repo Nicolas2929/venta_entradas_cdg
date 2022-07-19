@@ -1,3 +1,4 @@
+import { TextField } from '@mui/material';
 import * as React from 'react';
 import Btn from "../Btn"
 // props = { inputs:[] , onSubmit:Function }
@@ -7,7 +8,7 @@ export default function Formulario(props) {
             return <div style={{
                 padding: 4
             }}>
-                <input id={"my-input-" + obj} placeholder={obj} />
+                <TextField id={"my-input-" + obj} placeholder={obj} label={obj} variant="outlined" />
             </div>
         })
     }
@@ -20,6 +21,7 @@ export default function Formulario(props) {
             resp[obj] = input.value;
         })
 
+        
         props.onSubmit(resp);
     }
 
@@ -27,7 +29,7 @@ export default function Formulario(props) {
     return (
         <div>
             {getInputs()}
-            <Btn onClick={submit}>hola</Btn>
+            <Btn onClick={submit} >Aceptar</Btn>
         </div>
     );
 

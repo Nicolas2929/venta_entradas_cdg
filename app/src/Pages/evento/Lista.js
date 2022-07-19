@@ -19,20 +19,24 @@ export default function Lista() {
         return <TableData header={[
             "hora", "fecha", "descripcion"
         ]} data={state.data}
+            onSelect={(itm) => {
+                navigate("/evento/perfil/"+itm.key)
+
+            }}
         />
 
     }
     return (
         <Page>
-          {getLista()}
-          <Button variant="outlined" color="error" onClick={()=>{
-                  navigate("/usuario/registro")
+            {getLista()}
+            <Button variant="outlined" color="error" onClick={() => {
+                navigate("/evento/registro")
 
             }}>
                 registar
             </Button>
         </Page>
-            
-        
+
+
     );
 }

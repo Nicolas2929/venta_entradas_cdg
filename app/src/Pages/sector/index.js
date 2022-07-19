@@ -7,5 +7,5 @@ const Name = "sector";
 
 export default [
     <Route path={Name + ''} element={<Lista />} />,
-    <Route path={Name + '/registro'} element={<Registro />} />,
+    <Route path={Name + '/registro/:key_evento'} element={<Registro />} />,
 ]

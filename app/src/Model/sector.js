@@ -31,9 +31,20 @@ const editar = (data, callback) => {
     }, callback)
 }
 
+const getByKeyEvento = (key_evento, callback) => {
+    Http.POST({
+        "component": Name,
+        "type": "getAll"
+    }, (resp) => {
+        var data = resp.data;
+        resp.data = data.filter(obj => obj.key_evento == key_evento)
+        callback(resp);
+    })
+}
 export default {
     getAll,
     getByKey,
     registro,
-    editar
+    editar,
+    getByKeyEvento
 };

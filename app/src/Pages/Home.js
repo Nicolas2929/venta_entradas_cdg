@@ -8,16 +8,14 @@ export default function Home() {
   const navigate = useNavigate();
 
 
-  const item = ({to,name,img}) => {
+  const item = ({ to, name, img }) => {
     return <Link to={to}><p>
       <div><img style={{ height: "60px", width: "60px" }} alt="" src={img} /></div>
-      <div style={{ color:"white",fontFamily:"arial",fontSize:"15px",}}>{name}</div></p>
+      <div style={{ color: "white", fontFamily: "arial", fontSize: "15px", }}>{name}</div></p>
     </Link>
   }
   return (
-
     <Page>
-
       <div style={
         {
           minHeight: "100vh",
@@ -25,47 +23,42 @@ export default function Home() {
           backgroundRepeat: "no-repeat",
           backgroundZide: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed"
+          backgroundAttachment: "fixed",
+          position: "absolute"
         }
       }>
-        <h2>Guabira</h2>
-
+        <h1>hola</h1>
         <Box sx={{ display: 'flex', gap: 28, alignItems: 'center', flexWrap: 'wrap' }}>
           {item({
-            to:"usuario",
-            name:"Usuario.",
-            img:"2256990.png"
+            to: "usuario",
+            name: "Usuario.",
+            img: "2256990.png"
           })}
           {item({
-            to:"evento",
-            name:"evento.",
-            img:"120.png"
+            to: "evento",
+            name: "evento.",
+            img: "120.png"
           })}
           {item({
-            to:"sector",
-            name:"sector.",
-            img:"100.png"
+            to: "sector",
+            name: "sector.",
+            img: "100.png"
           })}
           {item({
-            to:"ticket",
-            name:"ticket.",
-            img:"1.jpg"
+            to: "ticket",
+            name: "ticket.",
+            img: "1.jpg"
           })}
           {item({
-            to:"venta",
-            name:"venta.",
-            img:"22.png"
+            to: "venta",
+            name: "venta.",
+            img: "22.png"
           })}
           {item({
-            to:"orden_pago",
-            name:"orden_pago.",
-            img:"125.png"
+            to: "orden_pago",
+            name: "orden_pago.",
+            img: "125.png"
           })}
-          
-          
-          
-          
-  
         </Box>
 
       </div>

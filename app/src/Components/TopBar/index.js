@@ -8,26 +8,24 @@ export default function TopBar(props) {
             <a href={data.href}>
                 <Button variant="contained" color="inherit">
                     {data.label}
-                    </Button>
+                </Button>
             </a>
-            
+
         </div>
-       
+
     }
-    return <AppBar position="stickey" style={{backgroundColor: "red",color: "black"}}>
-<a href={"/"}>
-       GUABIRA
-       
+    return <AppBar position="stickey" style={{ backgroundColor: "red", color: "black" }}>
+        <a href={"/"}>
+            GUABIRA
         </a>
         <br />
         <div>
             {btnMenu({ label: "usuario", href: "/usuario" })}
-        {btnMenu({ label: "evento", href: "/evento" })}
-        {btnMenu({ label: "sector", href: "/sector" })}
-        {btnMenu({ label: "ticket", href: "/ticket" })}
-        {btnMenu({ label: "venta", href: "/venta" })}
-        {btnMenu({ label: "orden_pago", href: "/orden_pago" })}
+            {btnMenu({ label: "evento", href: "/evento" })}
+            {/* {btnMenu({ label: "sector", href: "/sector" })} */}
+            {/* {btnMenu({ label: "ticket", href: "/ticket" })} */}
+            {/* {btnMenu({ label: "venta", href: "/venta" })} */}
+            {/* {btnMenu({ label: "orden_pago", href: "/orden_pago" })} */}
         </div>
-        
- </AppBar>
+    </AppBar>
 }
