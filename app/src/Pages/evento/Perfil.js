@@ -1,6 +1,8 @@
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import * as React from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
+import AddBtn from '../../Components/AddBtn';
+import EditBtn from '../../Components/EditBtn';
 import Formulario from '../../Components/Formulario';
 import Page from '../../Components/Page';
 import TableData from '../../Components/TableData';
@@ -25,19 +27,27 @@ export default function Perfil() {
     const getPerfil = () => {
         if (!state.data) return null;
         if (!state.eventos) return null;
-        
+
         return <div>
+            <Typography variant="h5">
+                Evento
+                <EditBtn onClick={() => {
+                    navigate("/evento/editar/" + key)
+                }} />
+            </Typography>
             <p><button>{state.data.descripcion}</button></p>
             <p><button>{state.data.hora}</button></p>
             <p><button>{state.data.fecha}</button></p>
-            <hr />
-            <h4 color='red'><p>Sectores</p></h4>
-            <Button variant="outlined" color="error" onClick={() => {
-                navigate("/sector/registro/" + key)
 
-            }}>
-                Nuevo Sector
-            </Button>
+
+            <hr />
+            <Typography variant="h5">
+                Sectores
+                <AddBtn onClick={() => {
+                    navigate("/sector/registro/" + key)
+                }} />
+            </Typography>
+
             <TableData header={[
                 "nombre", "precio", "capacidad"
             ]} data={state.eventos}

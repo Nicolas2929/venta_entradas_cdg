@@ -20,6 +20,7 @@ export default function Lista() {
         return <TableData header={[
             "descripcion", "fecha", "hora",
         ]} data={state.data}
+            filter={obj => obj.estado != 0}
             onSelect={(itm) => {
                 navigate("/evento/perfil/" + itm.key)
 

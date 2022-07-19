@@ -12,7 +12,10 @@ export default function TableData(props) {
     const { data, header } = props;
 
 
-    const rows = data;
+    var rows = data;
+    if (props.filter) {
+        rows = data.filter(props.filter);
+    }
 
     return (
         <TableContainer component={Paper}>

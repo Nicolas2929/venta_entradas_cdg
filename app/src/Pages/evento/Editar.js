@@ -1,6 +1,8 @@
 import { Typography } from '@mui/material';
 import * as React from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
+import Btn from '../../Components/Btn';
+import DeleteBtn from '../../Components/DeleteBtn';
 import Formulario from '../../Components/Formulario';
 import Page from '../../Components/Page';
 import Model from '../../Model';
@@ -21,6 +23,18 @@ export default function Editar() {
         <Page>
             <Typography variant="h5">
                 Editar Evento
+                <DeleteBtn onClick={() => {
+                    Model.evento.editar({
+                        ...state.data,
+                        estado: 0,
+                    }, (resp) => {
+                        if (resp.estado == "exito") {
+                            navigate("/evento")
+                        } else {
+                            console.log(resp)
+                        }
+                    })
+                }} />
             </Typography>
             <Formulario
                 inputs={["descripcion", "fecha", "hora"]}
