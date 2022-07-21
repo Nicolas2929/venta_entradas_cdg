@@ -40,16 +40,15 @@ export default function Login() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
+          
+          <Avatar src="/img/logo.png"></Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
-              required
+              error
               fullWidth
               id="email"
               label="Email Address"
@@ -59,7 +58,7 @@ export default function Login() {
             />
             <TextField
               margin="normal"
-              required
+              error
               fullWidth
               name="password"
               label="Password"
@@ -73,20 +72,21 @@ export default function Login() {
             />
             <Button
               type="submit"
-              fullWidth
+             fullWidth 
               variant="contained"
+              color='error'
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" color="error">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="usuario/registro" variant="body2">
+                <Link href="usuario/registro" variant="body2"color="error">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
