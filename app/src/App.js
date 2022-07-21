@@ -17,16 +17,16 @@ import ticket from './Pages/ticket';
 import venta from './Pages/venta';
 import orden_pago from './Pages/orden_pago';
 import Perfil from './Pages/Perfil';
-import LoginA from './Pages/login1';
-
+import admin from './Pages/admin';
 import "./App.css"
+import Registro from './Pages/Registro';
 export default function App() {
   return (
     <Router>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='login' element={<Login />} />
-        <Route path='login1' element={<LoginA />} />
+        <Route path='registro' element={<Registro />} />
         <Route path='test' element={<Test />} />
         <Route path='perfil' element={<Perfil />} />
         {usuario}
@@ -35,6 +35,7 @@ export default function App() {
         {ticket}
         {venta}
         {orden_pago}
+        {admin}
       </Routes>
     </Router>
   )

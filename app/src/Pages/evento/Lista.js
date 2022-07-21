@@ -12,6 +12,11 @@ export default function Lista() {
     React.useEffect(() => {
         Model.evento.getAll((resp) => {
             state.data = resp.data;
+            state.data.sort((a, b) => {
+                var fecha_a = new Date(a.fecha + " " + a.hora);
+                var fecha_b = new Date(b.fecha + " " + b.hora);
+                return fecha_a.getTime() < fecha_b.getTime() ? 1 : -1
+            })
             setState({ ...state });
         })
     }, [])

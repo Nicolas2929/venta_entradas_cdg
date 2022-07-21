@@ -26,6 +26,9 @@ public class usuario {
                 case "getByKey":
                     getByKey(obj);
                     break;
+                case "login":
+                    login(obj);
+                    break;
             }
         } catch (Exception e) {
             obj.put("estado", "error");
@@ -65,5 +68,21 @@ public class usuario {
                                 + obj.getString("key") + "'");
         obj.put("data", arr);
         obj.put("estado", "exito");
+    }
+
+    public static void login(JSONObject obj) throws SQLException {
+        JSONObject data = obj.getJSONObject("data");
+        JSONObject arr = SPGConect
+                .ejecutarConsultaObject(
+                        "SELECT to_json(" + COMPONENT + ".*) as json FROM " + COMPONENT + " WHERE correo = '"
+                                + data.getString("correo") + "' and password = '" + data.getString("password") + "'");
+        if (!arr.has("key")) {
+            obj.put("estado", "error");
+            obj.put("error", "usuario not found");
+        } else {
+            obj.put("data", arr);
+            obj.put("estado", "exito");
+        }
+
     }
 }

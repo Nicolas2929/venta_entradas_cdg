@@ -23,7 +23,7 @@ export default function Editar() {
                 Editar Usuario
             </Typography>
             <Formulario
-                inputs={["nombre", "apellido", "correo", "telefono", "password"]}
+                inputs={["nombre", "apellido", "correo", "telefono", "password", "admin"]}
                 defaultValue={state.data}
                 onSubmit={(data) => {
                     Model.usuario.editar({

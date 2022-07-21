@@ -2,6 +2,7 @@ import * as React from 'react';
 import { AppBar, Button, Link } from '@mui/material';
 import "./index.css"
 import { ClassNames } from '@emotion/react';
+import Model from '../../Model';
 export default function TopBar(props) {
     const btnMenu = (data) => {
         return <div className='btnMenu'>
@@ -10,6 +11,14 @@ export default function TopBar(props) {
             </Link>
         </div>
 
+    }
+
+    var usuario = Model.usuario.getSession();
+    if (!usuario) {
+        window.location.href = "/login"
+    }
+    if (!usuario.admin) {
+        window.location.href = "/"  
     }
     return <>
         <AppBar position="stickey" style={{ backgroundColor: "#fff", color: "black" }}>
@@ -21,6 +30,7 @@ export default function TopBar(props) {
                 <a href={"/"}>
                     <img src={"/img/logo.png"} width={50} />
                 </a>
+                {btnMenu({ label: "My Perfil", href: "/perfil" })}
                 {btnMenu({ label: "usuario", href: "/usuario" })}
                 {btnMenu({ label: "evento", href: "/evento" })}
                 {/* {btnMenu({ label: "sector", href: "/sector" })} */}

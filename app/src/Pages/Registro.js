@@ -20,20 +20,25 @@ import { Mode } from '@mui/icons-material';
 
 const theme = createTheme();
 
-export default function Login() {
+export default function Registro() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    Model.usuario.login({
-      correo: data.get("email"),
+
+    if (data.get("password") != data.get("rep_password")) {
+      alert("contrasenhas diferentes");
+      return;
+    }
+    var usuario = {
+      nombre: data.get("nombre"),
+      apellido: data.get("apellido"),
+      correo: data.get("correo"),
+      telefono: data.get("telefono"),
       password: data.get("password")
-    }, (resp) => {
+    }
+    Model.usuario.registro(usuario, (resp) => {
       if (resp.estado == "exito") {
-        if (resp?.data?.admin) {
-          window.location.href = "/admin"
-        } else {
-          window.location.href = "/"
-        }
+        window.location.href = "/login"
       } else {
         alert(resp.error)
       }
@@ -59,18 +64,42 @@ export default function Login() {
 
           <Avatar src="/img/logo.png"></Avatar>
           <Typography component="h1" variant="h5">
-            Inicia sesión
+            Registrate
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               error
               fullWidth
-              id="email"
-              label="Correo"
-              name="email"
-              autoComplete="email"
+              id="nombre"
+              label="Nombre"
+              name="nombre"
               autoFocus
+              required
+            />
+            <TextField
+              margin="normal"
+              error
+              fullWidth
+              id="apellido"
+              label="Apellido"
+              name="apellido"
+            />
+            <TextField
+              margin="normal"
+              error
+              fullWidth
+              id="correo"
+              label="Correo"
+              name="correo"
+            />
+            <TextField
+              margin="normal"
+              error
+              fullWidth
+              id="telefono"
+              label="Telefono"
+              name="telefono"
             />
             <TextField
               margin="normal"
@@ -80,7 +109,15 @@ export default function Login() {
               label="Contraseña"
               type="password"
               id="password"
-              autoComplete="current-password"
+            />
+            <TextField
+              margin="normal"
+              error
+              fullWidth
+              name="rep_password"
+              label="Rep. Contraseña"
+              type="password"
+              id="rep_password"
             />
             {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -93,20 +130,9 @@ export default function Login() {
               color='error'
               sx={{ mt: 3, mb: 2 }}
             >
-              Iniciar
+              Registrar
             </Button>
-            <Grid container>
-              <Grid item xs>
-                {/* <Link href="#" variant="body2" color="error">
-                  Forgot password?
-                </Link> */}
-              </Grid>
-              <Grid item>
-                <Link href="/registro" variant="body2" color="error">
-                  {"No tienes usuario? Registrate"}
-                </Link>
-              </Grid>
-            </Grid>
+
           </Box>
         </Box>
       </Container>

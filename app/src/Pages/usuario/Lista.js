@@ -19,7 +19,7 @@ export default function Lista() {
     const getLista = () => {
         if (!state.data) return null;
         return <TableData header={[
-            "nombre", "apellido", "correo", "telefono", "password", "estado"
+            "nombre", "apellido", "correo", "telefono", "password", "estado", "admin"
         ]} data={state.data}
             onSelect={(itm) => {
                 navigate("/usuario/editar/" + itm.key)

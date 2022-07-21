@@ -34,7 +34,7 @@ export default function TableData(props) {
                             props.onSelect(row)
                         }} >
                             {header.map((h) => (
-                                <TableCell component="th" scope="row">{row[h]}</TableCell>
+                                <TableCell component="th" scope="row">{row[h]+""}</TableCell>
                             ))}
                         </TableRow>
                     ))}

@@ -11,12 +11,13 @@ export default function Registro() {
             <Typography variant="h5">
                 Nuevo Usuario
             </Typography>
-            <Formulario inputs={["nombre", "apellido", "correo", "telefono", "password"]} onSubmit={(data) => {
+            <Formulario inputs={["nombre", "apellido", "correo", "telefono", "password", "admin"]} onSubmit={(data) => {
                 Model.usuario.registro(data, (resp) => {
                     if (resp.estado == "exito") {
                         window.history.back()
                     } else {
                         console.log(resp)
+                        alert(resp.error)
                     }
                 })
             }} />

@@ -29,10 +29,38 @@ const editar = (data, callback) => {
         "data": data
     }, callback)
 }
+const login = ({ correo, password }, callback) => {
+    Http.POST({
+        "component": Name,
+        "type": "login",
+        "data": {
+            correo,
+            password
+        }
+    }, (resp) => {
+        if (resp.estado == "exito") {
+            localStorage.setItem("usuario_log", JSON.stringify(resp.data));
+        }
+        if (callback) callback(resp)
+    })
+}
+const cerrarSession = () => {
+    localStorage.removeItem("usuario_log");
+    window.location.href = "/login"
+}
+const getSession = () => {
+    var usr = localStorage.getItem("usuario_log");
+    if (!usr) return null;
+    var obj = JSON.parse(usr);
+    return obj;
+}
 
 export default {
     getAll,
     getByKey,
     registro,
-    editar
+    editar,
+    login,
+    getSession,
+    cerrarSession
 };
