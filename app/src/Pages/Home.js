@@ -3,6 +3,7 @@ import { width } from '@mui/system';
 import * as React from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import Page from '../Components/Page';
+import Button from '@mui/material/Button';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -27,7 +28,11 @@ export default function Home() {
           position: "absolute"
         }
       }>
-        <h1>hola</h1>
+        
+        
+        <h1> <Button>Club Deportivo Guabirá</Button></h1>
+        
+        
         <Box sx={{ display: 'flex', gap: 28, alignItems: 'center', flexWrap: 'wrap' }}>
           {item({
             to: "usuario",
@@ -47,7 +52,7 @@ export default function Home() {
           {item({
             to: "ticket",
             name: "ticket.",
-            img: "1.jpg"
+            img: "55.png"
           })}
           {item({
             to: "venta",

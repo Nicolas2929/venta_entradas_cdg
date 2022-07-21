@@ -4,7 +4,7 @@ const POST = async (data, callback) => {
         body: JSON.stringify(data),
     };
 
-    
+        
     fetch('http://localhost:8080/api', options)
         .then(response => response.json())
         .then(response => {
