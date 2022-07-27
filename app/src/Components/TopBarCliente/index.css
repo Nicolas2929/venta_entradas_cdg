@@ -1,0 +1,9 @@
+.TopBar{
+    height: 80px;
+    background-color: #f00;
+}
+
+.btnMenu{
+    display: inline-block;
+    padding: 8px;
+}

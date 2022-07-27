@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Page from '../Components/Page';
 import Button from '@mui/material/Button';
 import Model from '../Model';
+import TopBarCliente from '../Components/TopBarCliente';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ export default function Home() {
 
   const getAdmin = () => {
     var usuario = Model.usuario.getSession();
+    if (!usuario) return null;
     if (!usuario.admin) return null;
     return <Button onClick={() => {
       window.location.href = "/admin"
@@ -38,10 +40,12 @@ export default function Home() {
   const getSectoresItem = (obj, sectores) => {
     return (<div>
       {sectores.map((itm) => {
-        return <div onClick={()=>{
-          console.log(itm)
-        }}>
-          {itm.nombre} - Bs. {itm.precio}
+        return <div>
+          <Button onClick={() => {
+            navigate("addcar/" + itm.key);
+          }}>
+            {itm.nombre} - Bs. {itm.precio}
+          </Button>
         </div>
       })}
     </div>)
@@ -80,12 +84,7 @@ export default function Home() {
     </List>
   }
   return (
-    <Page hidden>
-      <Button onClick={() => {
-        window.location.href = "/perfil"
-      }}>Perfil</Button>
-      {getAdmin()}
-      <hr />
+    <Page nouser>
       {getListaEvento()}
     </Page>
   );

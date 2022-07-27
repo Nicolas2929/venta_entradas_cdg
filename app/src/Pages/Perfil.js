@@ -12,7 +12,7 @@ export default function Perfil(props) {
         window.location.href = "/login"
     }
 
-    return <Page hidden>
+    return <Page nouser>
         <Typography variant="h5">
                 Perfil usuario
             </Typography>

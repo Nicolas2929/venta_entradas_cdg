@@ -21,6 +21,10 @@ import Perfil from './Pages/Perfil';
 import admin from './Pages/admin';
 import "./App.css"
 import Registro from './Pages/Registro';
+import Addcar from './Pages/Addcar';
+import Carrito from './Pages/carrito';
+import Compra from './Pages/compra';
+import QR from './Pages/QR';
 export default function App() {
   return (
     <Router>
@@ -31,6 +35,10 @@ export default function App() {
         <Route path='test' element={<Test />} />
         <Route path='perfil' element={<Perfil />} />
         <Route path='recibo' element={<Recibo />} />
+        <Route path='addcar/:key' element={<Addcar/>} />
+        <Route path='carrito' element={<Carrito/>} />
+        <Route path='compra' element={<Compra/>} />
+        <Route path='qr' element={<QR/>} />
         {usuario}
         {evento}
         {sector}
