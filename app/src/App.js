@@ -9,6 +9,7 @@ import {
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Test from './Pages/Test';
+import Recibo from './Pages/Recibo';
 
 import usuario from './Pages/usuario';
 import evento from './Pages/evento';
@@ -29,6 +30,7 @@ export default function App() {
         <Route path='registro' element={<Registro />} />
         <Route path='test' element={<Test />} />
         <Route path='perfil' element={<Perfil />} />
+        <Route path='recibo' element={<Recibo />} />
         {usuario}
         {evento}
         {sector}
