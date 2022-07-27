@@ -1,7 +1,9 @@
-import { Button } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import * as React from 'react';
 import Page from '../Components/Page';
 import Model from '../Model';
+import { Typography } from '@mui/material';
+
 
 
 export default function Perfil(props) {
@@ -11,25 +13,31 @@ export default function Perfil(props) {
     }
 
     return <Page hidden>
-        <br/>
-        <label>key: {usuario.key}</label>
-        <br />
-        <label>nombre: {usuario.nombre}</label>
-        <br />
-        <label>apellido: {usuario.apellido}</label>
-        <br />
-        <label>correo: {usuario.correo}</label>
-        <br />
-        <label>telefono: {usuario.telefono}</label>
-        <br />
-        <label>password: {usuario.password}</label>
-        <br />
-        <label>ci: {usuario.ci}</label>
-        <br />
-        <label>admin: {usuario.admin?"SI":"NO"}</label>
-        <br />
-        <Button onClick={() => {
+        <Typography variant="h5">
+                Perfil usuario
+            </Typography>
+            
+                
+        <br/><p> 
+        <label><Button variant="contained" color='primary'fullWidth>key: {usuario.key}</Button></label>
+        <br /></p>
+        <label><Button variant="contained" color='primary'fullWidth>nombre: {usuario.nombre}</Button></label>
+        <br /><p>
+        <label><Button variant="contained" color='primary'fullWidth>apellido: {usuario.apellido}</Button></label>
+        <br /></p>
+        <label><Button variant="contained" color='primary'fullWidth>correo: {usuario.correo}</Button></label>
+        <br /><p>
+        <label><Button variant="contained" color='primary'fullWidth>telefono: {usuario.telefono}</Button></label>
+        <br /></p>
+        <label><Button variant="contained" color='primary'fullWidth>password: {usuario.password}</Button></label>
+        <br /><p>
+        <label><Button variant="contained" color='primary'fullWidth>ci: {usuario.ci}</Button></label>
+        <br /></p>
+        <label><Button variant="contained" color='primary'fullWidth>admin: {usuario.admin?"SI":"NO"}</Button></label>
+        <br /><p>
+        <Button variant="contained" color='error' onClick={() => {
             Model.usuario.cerrarSession();
         }}>cerrar session</Button>
+        </p>
     </Page>
 }
