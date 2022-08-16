@@ -75,21 +75,44 @@ export default function Compra(props) {
         <h1>Detalle de la compra</h1>
         <Grid container spacing={1}>
             <Grid item xs={8}>
-                <TextField id="in_precio" label="Nit" variant="outlined" />
+                <TextField id="in_venta_nit" label="Nit" variant="outlined" />
             </Grid>
             <Grid item xs={4}>
-                <TextField fullWidth id="in_nombre" label="Fecha" variant="outlined" value={new Date().toDateString()} />
+                <TextField fullWidth id="in_venta_fecha" label="Fecha" variant="outlined" value={new Date().toDateString()} />
             </Grid>
             <Grid item xs={6}>
-                <TextField fullWidth id="in_nombre" label="Razon Social" variant="outlined" />
+                <TextField fullWidth id="in_venta_rs" label="Razon Social" variant="outlined" />
             </Grid>
         </Grid>
         <br /> <hr /> <br />
         {getDetalle()}
         {getTotal()}
 
-        <Button onClick={() => {
+        {/* <Button onClick={() => {
             window.location.href = "/qr"
-        }} color={"error"} variant={"contained"}>GENERAR QR</Button>
+        }} color={"error"} variant={"contained"}>GENERAR QR</Button> */}
+
+        <Button onClick={() => {
+            // window.location.href = "/qr"
+            var usuario = Model.usuario.getSession();
+            var nit = document.getElementById("in_venta_nit").value
+            var fecha = document.getElementById("in_venta_fecha").value
+            var rs = document.getElementById("in_venta_rs").value
+            var detalle = Model.carrito.getAll();
+            Model.venta.registro({
+                codigo: "--",
+                nit: nit,
+                razon_social: rs,
+                key_usuario: usuario.key,
+                detalle: detalle
+
+            }, (resp) => {
+                console.log(resp)
+                if(resp.estado == "exito"){
+                    Model.carrito.clear();
+                    window.location.href = "/qr/"+resp.data.key
+                }
+            });
+        }} color={"error"} variant={"contained"}>PAGAR</Button>
     </Page>
 }

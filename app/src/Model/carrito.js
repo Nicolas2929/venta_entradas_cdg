@@ -18,10 +18,14 @@ const eliminar = (key) => {
     delete carrito_data[key];
     sessionStorage.setItem("carrito", JSON.stringify(carrito_data));
 }
+const clear = () => {
+    sessionStorage.removeItem("carrito");
+}
 
 
 export default {
     getAll,
     registro,
-    eliminar
+    eliminar,
+    clear
 };

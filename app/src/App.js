@@ -24,7 +24,9 @@ import Registro from './Pages/Registro';
 import Addcar from './Pages/Addcar';
 import Carrito from './Pages/carrito';
 import Compra from './Pages/compra';
+import Miscompras from './Pages/miscompras';
 import QR from './Pages/QR';
+import ConfirmarPago from './Pages/confirmarPago';
 export default function App() {
   return (
     <Router>
@@ -34,11 +36,13 @@ export default function App() {
         <Route path='registro' element={<Registro />} />
         <Route path='test' element={<Test />} />
         <Route path='perfil' element={<Perfil />} />
-        <Route path='recibo' element={<Recibo />} />
+        <Route path='recibo/:key' element={<Recibo />} />
         <Route path='addcar/:key' element={<Addcar/>} />
         <Route path='carrito' element={<Carrito/>} />
         <Route path='compra' element={<Compra/>} />
-        <Route path='qr' element={<QR/>} />
+        <Route path='miscompras' element={<Miscompras/>} />
+        <Route path='qr/:key' element={<QR/>} />
+        <Route path='confirmar_pago/:key' element={<ConfirmarPago/>} />
         {usuario}
         {evento}
         {sector}

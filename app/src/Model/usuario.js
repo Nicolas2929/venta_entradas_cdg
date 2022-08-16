@@ -46,6 +46,8 @@ const login = ({ correo, password }, callback) => {
 }
 const cerrarSession = () => {
     localStorage.removeItem("usuario_log");
+    localStorage.removeItem("carrito");
+    
     window.location.href = "/login"
 }
 const getSession = () => {
