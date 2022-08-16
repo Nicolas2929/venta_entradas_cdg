@@ -19,6 +19,7 @@ export default function TopBarCliente(props) {
         ITEMS.push(btnMenu({ label: "Login", href: "/login" }));
     } else {
         ITEMS.push(btnMenu({ label: "Perfil", href: "/perfil" }));
+        ITEMS.push(btnMenu({ label: "Mis Compras", href: "/miscompras" }));
     }
     if (usuario?.admin) {
         ITEMS.push(btnMenu({ label: "Admin", href: "/admin" }));

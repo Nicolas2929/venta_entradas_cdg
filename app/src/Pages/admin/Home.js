@@ -68,6 +68,11 @@ export default function Home() {
           name: "evento",
           img: "120.png"
         })}
+        {item({
+          to: "/venta",
+          name: "venta",
+          img: "120.png"
+        })}
         {/* {item({
           to: "sector",
           name: "sector",

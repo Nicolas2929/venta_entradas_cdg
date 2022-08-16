@@ -33,7 +33,7 @@ export default function TopBar(props) {
                 {btnMenu({ label: "My Perfil", href: "/perfil" })}
                 {btnMenu({ label: "usuario", href: "/usuario" })}
                 {btnMenu({ label: "evento", href: "/evento" })}
-                {/* {btnMenu({ label: "sector", href: "/sector" })} */}
+                {btnMenu({ label: "venta", href: "/venta" })}
                 {/* {btnMenu({ label: "ticket", href: "/ticket" })} */}
                 {/* {btnMenu({ label: "venta", href: "/venta" })} */}
                 {/* {btnMenu({ label: "orden_pago", href: "/orden_pago" })} */}

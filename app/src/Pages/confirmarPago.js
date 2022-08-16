@@ -9,16 +9,15 @@ import Model from '../Model';
 
 
 
-export default function QR(props) {
+export default function ConfirmarPago(props) {
     const { key } = useParams();
     const [state, setState] = React.useState({
     });
 
     React.useEffect(() => {
-        Http.QRAPI(Http.URL_PAGE+"/confirmar_pago/" + key, (resp) => {
-            state.qr = resp.data;
-            setState({ ...state });
-        })
+        // Http.QRAPI("prueba primer qr", (resp) => {
+        //     console.log(resp);
+        // })
         Model.venta.getByKey(key, (resp) => {
             state.data = resp.data;
             setState({ ...state });
@@ -27,9 +26,11 @@ export default function QR(props) {
 
     return <Page nouser >
 
-        <h1>{"PAGAR"}</h1>
+        <h1>{"CONFIRMAR PAGO"}</h1>
         <VentaItem data={state.data} />
-        <img src={"data:image/jpeg;base64, " + state.qr?.b64} width={300} />
 
+        <Button onClick={() => {
+            window.location.href = "/recibo/" + key
+        }} color={"error"} variant={"contained"}>CONFIRMAR PAGO</Button>
     </Page>
 }

@@ -30,11 +30,11 @@ export default function Login() {
       password: data.get("password")
     }, (resp) => {
       if (resp.estado == "exito") {
-        if (resp?.data?.admin) {
-          window.location.href = "/admin"
-        } else {
+        // if (resp?.data?.admin) {
+          // window.location.href = "/admin"
+        // } else {
           window.location.href = "/"
-        }
+        // }
       } else {
         alert(resp.error)
       }

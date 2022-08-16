@@ -1,58 +1,33 @@
-import { Button } from '@mui/material';
+import { Button, Grid, Input, InputAdornment, TextField } from '@mui/material';
 import * as React from 'react';
-import MediaCard from '../Components/MediaCard';
-import ModeToggle from '../Components/ModeToggle';
-import Titulo from '../Components/Titulo';
-import TopBar from '../Components/TopBar';
-import Typography from '../Components/Typography';
-
-export default function Test() {
+import { useParams } from 'react-router-dom';
+import Page from '../Components/Page';
+import VentaItem from '../Components/VentaItem';
+import Http from '../Http';
+import Model from '../Model';
 
 
 
-  return (
-    <div>
-      <TopBar />
-      <Titulo title={"Test"} subTitle={"sadhasd"} />
-      <Typography />
-      <ModeToggle />
-      <div style={{ textAlign: "center", marginBottom: 45 }}>
-        <Button variant="text">Text</Button>
-        <Button variant="contained">Contained</Button>
-        <Button variant="outlined">Outlined</Button>
-      </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <div>
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-        </div>
-        <div>
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-        </div>
-        <div>
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-        </div>
-        <div>
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-          <MediaCard />
-        </div>
-      </div>
 
+export default function Recibo(props) {
+  const { key } = useParams();
+  const [state, setState] = React.useState({
+  });
 
-    </div>
-  );
+  React.useEffect(() => {
+    // Http.QRAPI("prueba primer qr", (resp) => {
+    //     console.log(resp);
+    // })
+    Model.venta.getByKey(key, (resp) => {
+      state.data = resp.data;
+      setState({ ...state });
+    })
+  }, [])
+
+  return <Page nouser >
+
+    <h1>{"Recibo"}</h1>
+    <VentaItem data={state.data} />
+
+  </Page>
 }

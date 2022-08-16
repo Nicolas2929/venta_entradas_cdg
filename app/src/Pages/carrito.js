@@ -57,7 +57,6 @@ export default function Carrito(props) {
         {getDetalle()}
 
         <Button onClick={() => {
-
             var usuario = Model.usuario.getSession();
             if(!usuario){
                 alert("Para realizar la compra debe iniciar sesion");
