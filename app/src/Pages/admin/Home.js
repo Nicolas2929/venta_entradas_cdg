@@ -71,7 +71,7 @@ export default function Home() {
         {item({
           to: "/venta",
           name: "venta",
-          img: "120.png"
+          img: "55.png"
         })}
         {/* {item({
           to: "sector",

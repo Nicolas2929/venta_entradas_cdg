@@ -1,5 +1,6 @@
-const URL_SERVER = "http://192.168.3.2:8080/api"
-const URL_PAGE = "http://192.168.3.2:3000"
+import config from "../config.json"
+const URL_SERVER = "http://"+config.ip+":8080/api"
+const URL_PAGE = "http://"+config.ip+":3000"
 const POST = async (data, callback) => {
     const options = {
         method: 'POST',

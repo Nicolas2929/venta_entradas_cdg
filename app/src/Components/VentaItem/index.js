@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, TextField } from '@mui/material';
+import { Button, ButtonGroup, TextField } from '@mui/material';
 import TableData from '../TableData';
 // ...other imports
 
@@ -22,11 +22,14 @@ const VentaItem = (props) => {
 
     return (
         <div>
-            <p>nit: {data.nit}</p>
-            <p>razon social: {data["razon_social"]}</p>
+            
+            <ButtonGroup  orientation='vertical'>
+            <Button variant="contained"color='error' fullWidth >nit: {data.nit}</Button>
+            <Button variant="contained"color='error'>razon social: {data["razon_social"]}</Button>
             {/* <p>cantidad: {data["cantidad"]}</p> */}
-            <p>total: Bs.{data["total"]}</p>
-            <p>estado {data["estado"]}</p>
+            <Button variant="contained"color='error'>Total: Bs.{data["total"]}</Button>
+            <Button variant="contained"color='error'>Estado: {data["estado"]}</Button>
+            </ButtonGroup>
             {getDetalle()}
 
 
