@@ -1,4 +1,4 @@
-import { Avatar, Box, Divider, List, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
+import { Avatar, Box, Card, CardContent, CardHeader, Container, Divider, Grid, List, ListItem, ListItemAvatar, ListItemText, Typography } from '@mui/material';
 import { width } from '@mui/system';
 import * as React from 'react';
 import { Link, useNavigate } from 'react-router-dom'
@@ -6,6 +6,7 @@ import Page from '../Components/Page';
 import Button from '@mui/material/Button';
 import Model from '../Model';
 import TopBarCliente from '../Components/TopBarCliente';
+import EventoItem from '../Components/EventoItem';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -28,63 +29,22 @@ export default function Home() {
     })
   }, [])
 
-  const getAdmin = () => {
-    var usuario = Model.usuario.getSession();
-    if (!usuario) return null;
-    if (!usuario.admin) return null;
-    return <Button onClick={() => {
-      window.location.href = "/admin"
-    }}>Admin</Button>
-  }
-
-  const getSectoresItem = (obj, sectores) => {
-    return (<div>
-      {sectores.map((itm) => {
-        return <div>
-          <Button onClick={() => {
-            navigate("addcar/" + itm.key);
-          }}>
-            {itm.nombre} - Bs. {itm.precio}
-          </Button>
-        </div>
-      })}
-    </div>)
-  }
-  const EventoItem = (obj) => {
-    if (obj.estado != 1) return;
-    var sectores = state.sectores.filter(itm => itm.key_evento == obj.key);
-    return <>
-      <ListItem alignItems="flex-start">
-        <ListItemAvatar>
-          <Avatar alt={obj.descripcion} src="/img/" />
-        </ListItemAvatar>
-        <ListItemText
-          primary={obj.descripcion}
-          secondary={<>
-            {obj.fecha + " " + obj.hora}
-            <hr color='#eee' />
-            {getSectoresItem(obj, sectores)}
-          </>}
-        />
-        {/* <Button onClick={() => {
-          alert(obj.descripcion);
-        }}>Asistir</Button> */}
-      </ListItem>
-      <Divider variant="inset" component="li" />
-    </>
-  }
   const getListaEvento = () => {
     if (!state.eventos) return null
     if (!state.sectores) return null
 
-    return <List sx={{ width: '100%', maxWidth: 400, }} >
-      {state.eventos.map((obj) => {
-        return EventoItem(obj)
-      })}
-    </List>
+    return <Container sx={{ width: '100%' }} >
+      <Grid container spacing={1}>
+        {state.eventos.map((obj) => {
+          return <EventoItem obj={obj} state={state} />
+        })}
+      </Grid>
+    </Container>
   }
   return (
     <Page nouser>
+      <br />
+      <br />
       {getListaEvento()}
     </Page>
   );

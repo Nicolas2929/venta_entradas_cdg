@@ -30,7 +30,7 @@ export default function TopBar(props) {
                 <a href={"/"}>
                     <img src={"/img/logo.png"} width={50} />
                 </a>
-                {btnMenu({ label: "home", href: "/admin" })}
+                {btnMenu({ label: "Admin", href: "/admin" })}
                 {btnMenu({ label: "My Perfil", href: "/perfil" })}
                 {btnMenu({ label: "usuario", href: "/usuario" })}
                 {btnMenu({ label: "evento", href: "/evento" })}

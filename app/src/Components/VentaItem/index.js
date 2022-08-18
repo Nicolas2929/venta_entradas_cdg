@@ -11,14 +11,14 @@ const VentaItem = (props) => {
 
         return <>
             <TableData header={[
-                "key", "descripcion", "precio",
+                 "descripcion", "precio",
             ]}
                 data={data.detalle}
                 onSelect={(itm) => {
                     // navigate("/qr/" + itm.key)
                 }}
             />
-            
+
         </>
 
     }
@@ -35,15 +35,30 @@ const VentaItem = (props) => {
     }
     return (
         <div>
-            
+            <Grid container >
+                <Grid item xs={6}>
+                    nit: {data.nit}
+                    <br />
+                    razon social: {data["razon_social"]}
+                    {/* <Button variant="contained" color='error' ></Button> */}
+
+                </Grid>
+                <Grid item xs={6}>
+                    Estado:
+                    <Button variant="contained" color='error'> {getEstado(data["estado"])}</Button>
+                </Grid>
+            </Grid>
             <ButtonGroup orientation='vertical'>
-                <Button variant="contained" color='error' fullWidth >nit: {data.nit}</Button>
-                <Button variant="contained" color='error'>razon social: {data["razon_social"]}</Button>
-                {/* <p>cantidad: {data["cantidad"]}</p> */}
-                <Button variant="contained" color='error'>Total: Bs.{data["total"]}</Button>
-                <Button variant="contained" color='error'>Estado: {getEstado(data["estado"])}</Button>
             </ButtonGroup>
             {getDetalle()}
+            <br />
+            <Grid container >
+                <Grid xs={12} item style={{
+                    textAlign: "end"
+                }}>
+                    TOTAL: <Button variant="contained" color='error'> Bs.{data.total}</Button>
+                </Grid>
+            </Grid>
 
 
         </div>

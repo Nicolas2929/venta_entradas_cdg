@@ -15,7 +15,7 @@ export default function QR(props) {
     });
 
     React.useEffect(() => {
-        Http.QRAPI(Http.URL_PAGE+"/confirmar_pago/" + key, (resp) => {
+        Http.QRAPI(Http.URL_PAGE + "/confirmar_pago/" + key, (resp) => {
             state.qr = resp.data;
             setState({ ...state });
         })
@@ -26,10 +26,14 @@ export default function QR(props) {
     }, [])
 
     return <Page nouser >
+        <Grid textAlign={"center"}>
+            <h2>Escanea el Codigo QR con tu app el banco</h2>
+            <img src={"data:image/jpeg;base64, " + state.qr?.b64} width={300} />
 
-        <h1>{"PAGAR"}</h1>
+        </Grid>
+        <h2>Detalle</h2>
         <VentaItem data={state.data} />
-        <img src={"data:image/jpeg;base64, " + state.qr?.b64} width={300} />
+
 
     </Page>
 }
