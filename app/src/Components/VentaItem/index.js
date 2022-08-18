@@ -22,11 +22,11 @@ const VentaItem = (props) => {
 
     return (
         <div>
-            <p>nit: {data.nit}</p>
-            <p>razon social: {data["razon_social"]}</p>
+            <Button variant="outlined">nit: {data.nit}</Button>
+            <p><Button variant="outlined">razon social: {data["razon_social"]}</Button></p>
             {/* <p>cantidad: {data["cantidad"]}</p> */}
-            <p>total: Bs.{data["total"]}</p>
-            <p>estado {data["estado"]}</p>
+            <p><Button variant="outlined">total: Bs.{data["total"]}</Button></p>
+            <p><Button variant="outlined">estado {data["estado"]}</Button></p>
             {getDetalle()}
 
 
