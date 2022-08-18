@@ -3,6 +3,7 @@ import org.json.JSONObject;
 import Server.SSSAbstract.SSSessionAbstract;
 import components.evento;
 import components.orden_pago;
+import components.report;
 import components.sector;
 import components.ticket;
 import components.usuario;
@@ -21,15 +22,17 @@ public class Manejador {
                 sector.onMessage(obj);
                 break;
             case ticket.COMPONENT:
-                 ticket.onMessage(obj);
-                 break;
+                ticket.onMessage(obj);
+                break;
             case venta.COMPONENT:
-                 venta.onMessage(obj);
-                 break;
+                venta.onMessage(obj);
+                break;
             case orden_pago.COMPONENT:
-                 orden_pago.onMessage(obj);
-                 break;
-
+                orden_pago.onMessage(obj);
+                break;
+            case report.COMPONENT:
+                report.onMessage(obj);
+                break;
 
             default:
 

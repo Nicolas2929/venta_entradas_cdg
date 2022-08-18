@@ -23,7 +23,15 @@ export default function Miscompras() {
         ]}
             data={state.data.filter((obj) => obj.key_usuario == usuario.key)}
             onSelect={(itm) => {
-                navigate("/qr/"+itm.key)
+                switch (itm.estado) {
+                    case 1:
+                        navigate("/qr/" + itm.key)
+                        return;
+                    case 2:
+                        navigate("/recibo/" + itm.key)
+                        return;
+
+                }
             }}
         />
 

@@ -27,6 +27,7 @@ import Compra from './Pages/compra';
 import Miscompras from './Pages/miscompras';
 import QR from './Pages/QR';
 import ConfirmarPago from './Pages/confirmarPago';
+import report from './Pages/report';
 export default function App() {
   return (
     <Router>
@@ -50,6 +51,7 @@ export default function App() {
         {venta}
         {orden_pago}
         {admin}
+        {report}
       </Routes>
     </Router>
   )

@@ -1,6 +1,6 @@
 {
     "data_base": {
-        "ip": "localhost",
+        "ip": "192.168.0.224",
         "puerto": 5432,
         "user": "postgres",
         "pass": "postgres",

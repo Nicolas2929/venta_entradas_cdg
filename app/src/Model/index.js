@@ -5,6 +5,7 @@ import ticket from "./ticket";
 import venta from "./venta";
 import orden_pago from "./orden_pago";
 import carrito from "./carrito";
+import report from "./report";
 const Model = {
     usuario,
     evento,
@@ -12,6 +13,7 @@ const Model = {
     ticket,
     venta,
     orden_pago,
-    carrito
+    carrito,
+    report
 }
 export default Model;

@@ -17,6 +17,13 @@ export default function TableData(props) {
         rows = data.filter(props.filter);
     }
 
+    const renderData = (data) => {
+        var resp = data;
+        if (typeof data == "object") {
+            resp  = JSON.stringify(data);
+        }
+        return resp;
+    }
     return (
         <TableContainer component={Paper}>
             <Table aria-label="simple table">
@@ -34,7 +41,7 @@ export default function TableData(props) {
                             props.onSelect(row)
                         }} >
                             {header.map((h) => (
-                                <TableCell component="th" scope="row">{row[h]+""}</TableCell>
+                                <TableCell component="th" scope="row">{renderData(row[h])}</TableCell>
                             ))}
                         </TableRow>
                     ))}

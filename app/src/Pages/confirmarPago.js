@@ -30,7 +30,16 @@ export default function ConfirmarPago(props) {
         <VentaItem data={state.data} />
 
         <Button onClick={() => {
-            window.location.href = "/recibo/" + key
+            if (state.data.estado == 2) {
+                alert("El pedido ya fue pagado, no puede pagar 2 veces.");
+                window.location.href = "/recibo/" + key
+                return;
+            }
+            state.data.estado = 2;
+            Model.venta.editar(state.data, (resp) => {
+                window.location.href = "/recibo/" + key
+
+            })
         }} color={"error"} variant={"contained"}>CONFIRMAR PAGO</Button>
     </Page>
 }
