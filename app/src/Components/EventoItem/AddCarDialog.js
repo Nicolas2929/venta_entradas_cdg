@@ -23,7 +23,7 @@ export default function AddCarDialog(props) {
 
     return (
         <>
-            <Button onClick={handleClickOpen}>
+            <Button onClick={handleClickOpen} style={{float:"right"}}>
                 {props.children}
             </Button>
             <Dialog
@@ -53,7 +53,7 @@ export default function AddCarDialog(props) {
 
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Disagree</Button>
+                    <Button onClick={handleClose}>Cancelar</Button>
                     <Button onClick={() => {
                         var item = {
                             key: props.sector.key,
@@ -65,7 +65,7 @@ export default function AddCarDialog(props) {
                         window.location.href = "/carrito"
                         handleClose()
                     }} autoFocus>
-                        Agree
+                        Aceptar
                     </Button>
                 </DialogActions>
             </Dialog>
