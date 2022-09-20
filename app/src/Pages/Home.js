@@ -33,8 +33,8 @@ export default function Home() {
     if (!state.eventos) return null
     if (!state.sectores) return null
 
-    return <Container sx={{ width: '100%' }} >
-      <Grid container spacing={1}>
+    return <Container sx={{ width: '200%' }} >
+      <Grid container spacing={2}>
         {state.eventos.map((obj) => {
           return <EventoItem obj={obj} state={state} />
         })}

@@ -69,10 +69,11 @@ export default function EventoItem(props) {
                                     <span style={{
                                         background: "#F00000",
                                         cursor: "pointer",
-                                        padding: 8,
-                                        marginLeft: 8,
-                                        borderRadius: 8,
-                                        color: "#fff"
+                                        padding: 3,
+                                        marginLeft: 10,
+                                        borderRadius: 15,
+                                        
+                                        color: "#fff" 
                                     }} 
                                     // onClick={() => {
                                     //     navigate("addcar/" + sec.key);
