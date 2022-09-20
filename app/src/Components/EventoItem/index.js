@@ -65,6 +65,12 @@ export default function EventoItem(props) {
 
                             >
                                 {sec.nombre}
+                                {/* <br /> */}
+                                {/* <span style={{
+                                    fontSize:10
+                                }}>Disponibles {sec.capacidad - sec.vendidas}</span> */}
+
+
                                 <AddCarDialog evento={obj} sector={sec}>
                                     <span style={{
                                         background: "#F00000",
@@ -72,9 +78,9 @@ export default function EventoItem(props) {
                                         padding: 3,
                                         marginLeft: 10,
                                         borderRadius: 15,
-                                        
-                                        color: "#fff" 
-                                    }} 
+
+                                        color: "#fff"
+                                    }}
                                     // onClick={() => {
                                     //     navigate("addcar/" + sec.key);
                                     // }}

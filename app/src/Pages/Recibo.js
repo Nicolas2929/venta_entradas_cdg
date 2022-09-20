@@ -18,15 +18,25 @@ export default function Recibo(props) {
     // Http.QRAPI("prueba primer qr", (resp) => {
     //     console.log(resp);
     // })
+    Http.QRAPI2(Http.URL_PAGE + "/recibo/" + key, (resp) => {
+      state.qr = resp.data;
+      setState({ ...state });
+    })
     Model.venta.getByKey(key, (resp) => {
       state.data = resp.data;
-      setState({ ...state });
+      Model.usuario.getByKey(resp.data.key_usuario, (resp) => {
+        state.data.usuario = resp.data;
+        setState({ ...state });
+      })
     })
   }, [])
 
   return <Page nouser >
+    <br/>
+    <Grid textAlign={"center"}>
+      <img src={"data:image/jpeg;base64, " + state.qr?.b64} width={300} />
 
-    <h1>{"Recibo"}</h1>
+    </Grid>
     <VentaItem data={state.data} />
 
   </Page>

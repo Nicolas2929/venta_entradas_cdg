@@ -20,7 +20,11 @@ export default function ConfirmarPago(props) {
         // })
         Model.venta.getByKey(key, (resp) => {
             state.data = resp.data;
-            setState({ ...state });
+
+            Model.usuario.getByKey(resp.data.key_usuario, (resp) => {
+                state.data.usuario = resp.data;
+                setState({ ...state });
+            })
         })
     }, [])
 

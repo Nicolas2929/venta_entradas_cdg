@@ -10,7 +10,11 @@ export default function Miscompras() {
 
     React.useEffect(() => {
         Model.venta.getAll((resp) => {
-            state.data = resp.data;
+            state.data = resp.data.map((obj) => {
+                obj["Fecha"] = new Date(obj.fecha_on).toLocaleDateString();
+                return obj;
+            });
+            state.data = state.data.sort((a, b) => new Date(b.fecha_on) - new Date(a.fecha_on));
             setState({ ...state });
         })
     }, [])
@@ -19,9 +23,9 @@ export default function Miscompras() {
         var usuario = Model.usuario.getSession();
         console.log(state.data);
         return <TableData header={[
-            "codigo", "nit", "razon_social", "codigo", "cantidad", "total", "estado"
+            "Fecha", "nit", "razon_social", "cantidad", "total", "estado"
         ]}
-            data={state.data.filter((obj) => obj.key_usuario == usuario.key)}
+            data={state.data.filter((obj) => obj.key_usuario == usuario.key && obj.estado == 2)}
             onSelect={(itm) => {
                 switch (itm.estado) {
                     case 1:

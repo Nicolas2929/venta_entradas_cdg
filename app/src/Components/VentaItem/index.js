@@ -11,7 +11,7 @@ const VentaItem = (props) => {
 
         return <>
             <TableData header={[
-                 "descripcion", "precio",
+                "descripcion", "precio",
             ]}
                 data={data.detalle}
                 onSelect={(itm) => {
@@ -34,18 +34,34 @@ const VentaItem = (props) => {
         }
     }
     return (
-        <div>
+        <div style={{
+            textAlign: "center"
+        }}>
+            <Grid item xs={6}>
+                <Button variant="contained" color='error'> {getEstado(data["estado"])}</Button>
+            </Grid>
+            <br />
             <Grid container >
-                <Grid item xs={6}>
-                    nit: {data.nit}
+                <Grid item xs={6} style={{
+                    textAlign: "start"
+                }}>
+                    <span>Nombre: <b>{data?.usuario["nombre"]} {data?.usuario["apellido"]}</b></span>
                     <br />
-                    razon social: {data["razon_social"]}
+                    <span>Telefono: <b>{data?.usuario["telefono"]}</b></span>
+                    <br />
+                    <span>Correo: <b>{data?.usuario["correo"]}</b></span>
+                    <br />
+                </Grid>
+                <Grid item xs={6} style={{
+                    textAlign: "end"
+                }}>
+                    Fecha:{"\t"} {new Date(data.fecha_on).toLocaleDateString()}
+                    <br />
+                    nit:{"\t"} <b>{data.nit}</b>
+                    <br />
+                    razon social:{"\t"} <b>{data["razon_social"]}</b>
                     {/* <Button variant="contained" color='error' ></Button> */}
 
-                </Grid>
-                <Grid item xs={6}>
-                    Estado:
-                    <Button variant="contained" color='error'> {getEstado(data["estado"])}</Button>
                 </Grid>
             </Grid>
             <ButtonGroup orientation='vertical'>

@@ -19,7 +19,16 @@ export default function Perfil() {
             setState({ ...state });
         })
         Model.sector.getByKeyEvento(key, (resp) => {
-            state.eventos = resp.data;
+            state.vendidas = 0;
+            state.total = 0;
+            state.eventos = resp.data.map((obj) => {
+                state.vendidas += obj.vendidas ?? 0;
+                obj.total = obj.precio * (obj.vendidas ?? 0)
+                state.total += obj.total;
+                obj.total = "Bs. " + obj.total;
+                obj.vendidas = "(" + obj.vendidas + "/" + obj.capacidad + ")"
+                return obj;
+            })
             setState({ ...state });
         })
     }, [])
@@ -47,10 +56,12 @@ export default function Perfil() {
                     navigate("/sector/registro/" + key)
                 }} />
             </Typography>
-
+            <h3>Total: Bs. {state?.total}</h3>
+            <h3># Vendidas: ({state?.vendidas})</h3>
             <TableData header={[
-                "nombre", "precio", "capacidad"
-            ]} data={state.eventos}
+                "nombre", "precio", "vendidas", "total"
+            ]}
+                data={state.eventos}
                 onSelect={(itm) => {
                     navigate("/sector/editar/" + itm.key)
 

@@ -45,7 +45,9 @@ export default function Home() {
     <Page nouser>
       <br />
       <br />
-      {getListaEvento()}
+      <Grid container>
+        {getListaEvento()}
+      </Grid>
     </Page>
   );
 }

@@ -10,6 +10,7 @@ import Servisofts.SUtil;
 
 public class sector {
     public static final String COMPONENT = "sector";
+    public static final String VIEW= "view_sector";
 
     public static void onMessage(JSONObject obj) {
         try {
@@ -53,7 +54,7 @@ public class sector {
     public static void getAll(JSONObject obj) throws SQLException {
         JSONArray arr = SPGConect
                 .ejecutarConsultaArray(
-                        "SELECT array_to_json(array_agg(" + COMPONENT + ".*)) as json FROM " + COMPONENT + "");
+                        "SELECT array_to_json(array_agg(" + VIEW + ".*)) as json FROM " + VIEW + "");
         obj.put("data", arr);
         obj.put("estado", "exito");
     }
@@ -61,7 +62,7 @@ public class sector {
     public static void getByKey(JSONObject obj) throws SQLException {
         JSONObject arr = SPGConect
                 .ejecutarConsultaObject(
-                        "SELECT to_json(" + COMPONENT + ".*) as json FROM " + COMPONENT + " WHERE key = '"
+                        "SELECT to_json(" + VIEW + ".*) as json FROM " + VIEW + " WHERE key = '"
                                 + obj.getString("key") + "'");
         obj.put("data", arr);
         obj.put("estado", "exito");

@@ -45,8 +45,8 @@ export default function AddCarDialog(props) {
                         if (state.cantidad < 0) {
                             state.cantidad = 1;
                         }
-                        if (state.cantidad > props.sector.capacidad) {
-                            state.cantidad = props.sector.capacidad;
+                        if (state.cantidad > props.sector.capacidad-(props.sector.vendidas??0)) {
+                            state.cantidad = props.sector.capacidad-(props.sector.vendidas??0);
                         }
                         setState({ ...state });
                     }} />
