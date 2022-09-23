@@ -1,3 +1,4 @@
 {
-    "ip":"192.168.104.160"
+    "api":"http://clubguabira.servisofts.com/api",
+    "page":"http://clubguabira.servisofts.com"
 }

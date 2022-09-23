@@ -5,7 +5,7 @@ import AddCarDialog from './AddCarDialog';
 export default function EventoItem(props) {
     const navigate = useNavigate();
     var { obj, state } = props;
-    if (obj.estado != 1) return;
+    if (obj.estado != 1) return null;
     var sectores = state.sectores.filter(itm => itm.key_evento == obj.key);
     var min = 0;
     sectores = sectores.sort((a, b) => b.precio - a.precio)
