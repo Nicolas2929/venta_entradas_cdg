@@ -11,7 +11,7 @@ import Model from '../../Model';
 export default function AddCarDialog(props) {
     const [open, setOpen] = React.useState(false);
     const [state, setState] = React.useState({
-        cantidad: 1
+        cantidad: (props.sector.capacidad - (props.sector.vendidas ?? 1)) <= 0 ? 0 : 1
     });
     const handleClickOpen = () => {
         setOpen(true);
@@ -23,7 +23,7 @@ export default function AddCarDialog(props) {
 
     return (
         <>
-            <Button onClick={handleClickOpen} style={{float:"right"}}>
+            <Button onClick={handleClickOpen} style={{ float: "right" }}>
                 {props.children}
             </Button>
             <Dialog
@@ -45,8 +45,8 @@ export default function AddCarDialog(props) {
                         if (state.cantidad < 0) {
                             state.cantidad = 1;
                         }
-                        if (state.cantidad > props.sector.capacidad-(props.sector.vendidas??0)) {
-                            state.cantidad = props.sector.capacidad-(props.sector.vendidas??0);
+                        if (state.cantidad > props.sector.capacidad - (props.sector.vendidas ?? 0)) {
+                            state.cantidad = props.sector.capacidad - (props.sector.vendidas ?? 0);
                         }
                         setState({ ...state });
                     }} />
@@ -55,9 +55,14 @@ export default function AddCarDialog(props) {
                 <DialogActions>
                     <Button onClick={handleClose}>Cancelar</Button>
                     <Button onClick={() => {
+                        var cant = parseInt(state.cantidad);
+                        if(cant<=0){
+                            alert("Agotadas.")
+                            return;
+                        }
                         var item = {
                             key: props.sector.key,
-                            cantidad: parseInt(state.cantidad),
+                            cantidad: cant,
                             precio: props.sector.precio,
                             detalle: `Entradas para ${props.evento.descripcion} en el sector ${props.sector.nombre}`
                         }

@@ -1,6 +1,6 @@
 import { Button, Grid, Input, InputAdornment, TextField } from '@mui/material';
 import * as React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Page from '../Components/Page';
 import VentaItem from '../Components/VentaItem';
 import Http from '../Http';
@@ -11,6 +11,7 @@ import Model from '../Model';
 
 export default function ConfirmarPago(props) {
     const { key } = useParams();
+    const navigate = useNavigate();
     const [state, setState] = React.useState({
     });
 
@@ -20,9 +21,12 @@ export default function ConfirmarPago(props) {
         // })
         Model.venta.getByKey(key, (resp) => {
             state.data = resp.data;
-
+            if (state.data.estado == 2) {
+                navigate("/recibo/" + key)
+            }
             Model.usuario.getByKey(resp.data.key_usuario, (resp) => {
                 state.data.usuario = resp.data;
+
                 setState({ ...state });
             })
         })
