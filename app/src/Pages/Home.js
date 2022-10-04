@@ -20,7 +20,9 @@ export default function Home() {
         var fecha_b = new Date(b.fecha + " " + b.hora);
         return fecha_a.getTime() > fecha_b.getTime() ? 1 : -1
       })
-      state.eventos = state.eventos.filter(a => new Date(a.fecha + " " + a.hora).getTime() > new Date().getTime())
+      // state.eventos = state.eventos.filter(a => new Date(a.fecha + " " + a.hora).getTime() > new Date().getTime())
+      console.log(state.eventos)
+
       setState({ ...state });
     })
     Model.sector.getAll((resp) => {
@@ -28,16 +30,18 @@ export default function Home() {
       setState({ ...state });
     })
   }, [])
-
-  const getListaEvento = () => {
+  const getListDetail = () => {
     if (!state.eventos) return null
     if (!state.sectores) return null
-
+    // return <h1>{JSON.stringify(state.eventos)}</h1>
+    return state.eventos.map((obj) => {
+      return <EventoItem obj={obj} state={state} />
+    })
+  }
+  const getListaEvento = () => {
     return <Container sx={{ width: '200%' }} >
       <Grid container spacing={2}>
-        {state.eventos.map((obj) => {
-          return <EventoItem obj={obj} state={state} />
-        })}
+        {getListDetail()}
       </Grid>
     </Container>
   }
